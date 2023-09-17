@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winner</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Grandstander:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,900&family=Rowdies:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Grandstander', cursive;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        body {
+            background-color: #088395;
+            padding-top: 170px;
+        }
+
+        p {
+            margin-top: 25px;
+        }
+
+        button {
+        font-size: 18px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        padding: 0.7em 2em;
+        border: 3px solid #183153;
+        border-radius: 12px;
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+        color: #183153;
+        text-decoration: none;
+        transition: 0.3s ease all;
+        z-index: 1;
+        margin-top: 40px;
+        }
+
+        button:before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        opacity: 0;
+        content: '';
+        background-color: #183153;
+        z-index: -1;
+        border-radius: 11px;
+        }
+
+        button:hover, button:focus {
+        color: white;
+        }
+
+        button:hover:before, button:focus:before {
+        transition: 0.5s all ease;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        }
+
+        button:active {
+        transform: scale(0.9);
+        }
+        #str {
+        width: 800px;
+        padding: 20px;
+        height: auto;
+        font-family: sans-serif;
+        font-size: 60px;
+        margin: 20px auto;
+        color: #FBD341;
+        font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="str"></div>
+    <p>Apakah kamu mau bermain lagi?</p>
+    <a href="index.html"><button>Play Again!</button></a>
+
+
+
+    <script>
+        var string = "Selamat, Kamu Menang!";
+        var str = string.split("");
+        var el = document.getElementById('str');
+        (function animate() {
+        str.length > 0 ? el.innerHTML += str.shift() : clearTimeout(running); 
+        var running = setTimeout(animate, 90);
+        })();
+        
+    </script>
+    
+</body>
+</html>
